@@ -10,7 +10,7 @@ COPY ./index.html /usr/share/nginx/html/
 COPY ./assets /usr/share/nginx/html/assets/
 
 # Copy custom Nginx configuration
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Switch back to the non-root 'nginx' user
 USER nginx
