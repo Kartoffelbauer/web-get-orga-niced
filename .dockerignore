@@ -12,7 +12,7 @@ README.md
 LICENSE
 
 # Server Configuration (Handled explicitly by the Dockerfile COPY command)
-nginx.conf
+nginx/
 
 # System Files (macOS & Windows)
 .DS_Store
