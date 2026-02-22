@@ -1,10 +1,32 @@
+# Git and Version Control
 .git
 .gitignore
 .github
-.dockerignore
-.DS_Store
-.vscode
-.idea
-*.log
-README.md
+
+# Docker Files
 Dockerfile
+.dockerignore
+
+# Documentation
+README.md
+LICENSE
+
+# Server Configuration (Handled explicitly by the Dockerfile COPY command)
+nginx.conf
+
+# System Files (macOS & Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs and Text Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
