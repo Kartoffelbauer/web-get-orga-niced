@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>get Orga-niced</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="icon" href="./assets/img/favicon-dark.png" id="light-scheme-icon">
+  <link rel="icon" href="./assets/img/favicon-light.png" id="dark-scheme-icon">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ÜBER</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> KONTAKT</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ÜBER</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">KONTAKT</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle w3-center w3-animate-opacity" >
+    <p class="w3-padding-large w3-margin-bottom w3-black w3-xlarge w3-wide w3-animate-opacity">GET ORGANICED</p>
+    <p class="w3-margin-bottom w3-large w3-text-black" style="text-shadow: 2px 2px 4px white;">Ordnung ist das halbe Leben</p>
+	<a href="#about" class="w3-button w3-margin-top w3-light-grey"><i class="fa fa-arrow-down w3-margin-right"></i>WEITERLESEN</a>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ÜBER MICH</h3>
+  <p class="w3-center"><em>Professional Organizer</em></p>
+  <p>Ich bin eine professionelle Ordnungsexpertin und helfe Ihnen dabei, Ihr Zuhause oder Büro in Ordnung zu bringen.
+    Als Kind hatte ich schon immer eine Leidenschaft für Ordnung und habe mir mein Wissen selbst beigebracht.
+    Mit meiner jahrelangen Erfahrung und meinem Know-how kann ich Ihnen dabei helfen,
+    ein Leben ohne Chaos und Unordnung zu führen. Schauen Sie sich um und entdecken Sie, wie ich Ihnen helfen kann!</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Rahel Hermann</b></p>
+      <img src="./assets/img/avatar.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Foto von mir" width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-large">
+      <p>Ich bin eine leidenschaftliche Aufräumerin, Schätze-Suchende und System-Erfinderin. Mit meiner professionellen Hilfe schaffen wir gemeinsam Ordnung und Struktur in Ihrem Zuhause – eine persönliche „Wohlfühlordnung“.
+        Ich habe selbst erlebt, wie schwer es sein kann, Ordnung zu halten. Als ich vor einigen Jahren meine eigene Wohnung aufgeräumt habe, habe ich festgestellt, dass es mir nicht nur dabei geholfen hat, mich besser zu fühlen, sondern auch meine Produktivität und Kreativität gesteigert hat.
+        Seitdem habe ich meine Leidenschaft zum Beruf gemacht und helfe anderen dabei, ihre Wohnungen in einen sauberen und ordentlichen Zustand zu bringen.</p>
+    </div>
+  </div>
+  <p class="w3-large w3-center w3-padding-16">Was Ordnung ausmacht:</p>
+  <p class="w3-wide"><i class="fa fa-clipboard"></i>Planung</p>
+  <div class="w3-light-grey">
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:50%">50%</div>
+  </div>
+  <p class="w3-wide"><i class="fa fa-hourglass"></i>Umsetzung</p>
+  <div class="w3-light-grey">
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:30%">30%</div>
+  </div>
+  <p class="w3-wide"><i class="fa fa-gear"></i>Instanthaltung</p>
+  <div class="w3-light-grey">
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:20%">20%</div>
+  </div>
+</div>
+
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">1+</span><br>
+    Partner
+  </div>
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">1+</span><br>
+    ordentliche Wohnungen
+  </div>
+  <div class="w3-third w3-section">
+    <span class="w3-xlarge">1+</span><br>
+    Glückliche Kunden
+  </div>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-black w3-wide">PORTFOLIO</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">MEINE ARBEIT</h3>
+  <p class="w3-center"><em>Hier sind einige vorher nachher Beispiele meiner Kunden</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+      <img src="./assets/img/p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./assets/img/p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./assets/img/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./assets/img/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3">
+      <img src="./assets/img/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./assets/img/p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./assets/img/p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="./assets/img/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">KONTAKT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">TERMINVEREINBAHRUNG</h3>
+  <p class="w3-center"><em>Hierfür einfach anrufen oder eine Mail schreiben.</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container w3-hide-small">
+      <img src="./assets/img/phone.png" class="w3-image w3-round" alt="Telefon" style="width:100%">
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-xlarge w3-margin-right"></i> Deutschland, Ludwigsburg<br>
+        <i class="fa fa-phone fa-fw w3-xlarge w3-margin-right"></i> Tel.: <a class="w3-hover-text-black" href="tel:+4917621468645">+49 176 21468645</a><br>
+        <i class="fa fa-envelope fa-fw w3-xlarge w3-margin-right"></i> Email: <a class="w3-hover-text-black" href="mailto:info@get-orga-niced.de">info@get-orga-niced.de</a><br>
+      </div>
+      <p>Du warst bereits Kunde? Feedback willkommen!</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16 w3-opacity">
+  <div class="w3-xxlarge">
+    <a class="instaflw w3-hover-opacity" href="https://www.instagram.com/rahelhermann/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a>
+  </div>
+  <div class="w3-small w3-show-inline-block">
+    <table class="w3-table">
+      <tr>
+        <th>IMPRESSUM</th>
+      </tr>
+      <tr>
+        <td>Firmenname:</td>
+        <td>get Orga-niced</td>
+      </tr>
+      <tr>
+        <td>Rechtsform:</td>
+        <td>Kleingewerbe</td>
+      </tr>
+      <tr>
+        <td>Verantwortlich:</td>
+        <td>Rahel Hermann</td>
+      </tr>
+      <tr>
+        <td>Anschrift:</td>
+        <td><a class="w3-hover-opacity" href="https://goo.gl/maps/uf4eRzCV9H3cLWGe8" target="_blank">Münchinger Straße 22, 71706 Markgröningen</a></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><a class="w3-hover-opacity" href="mailto:rahel.hermann@get-orga-niced.de">rahel.hermann@get-orga-niced.de</a></td>
+      </tr>
+    </table>
+  </div>
+</footer>
+
+<script type="text/javascript" src="./assets/js/main.js"></script>
+
+</body>
+</html>
