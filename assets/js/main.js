@@ -28,10 +28,10 @@ function toggleFunction() {
 }
 
 // Change color of favicon on page load and theme change
-matcher = window.matchMedia('(prefers-color-scheme: dark)');
-matcher.addListener(onUpdateFavicon);
-lightSchemeIcon = document.querySelector('link#light-scheme-icon');
-darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
+const matcher = window.matchMedia('(prefers-color-scheme: dark)');
+matcher.addEventListener('change', onUpdateFavicon);
+const lightSchemeIcon = document.querySelector('link#light-scheme-icon');
+const darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
 
 function onUpdateFavicon() {
   if (matcher.matches) {
