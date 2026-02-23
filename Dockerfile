@@ -7,6 +7,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Copy only the necessary static files into the container
 COPY ./index.html /usr/share/nginx/html/
+COPY ./google8b1bf3edb416c742.html /usr/share/nginx/html/
 COPY ./assets /usr/share/nginx/html/assets/
 
 # Copy custom Nginx configuration
