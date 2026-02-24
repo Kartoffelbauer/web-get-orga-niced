@@ -19,7 +19,7 @@ function myFunction() {
 
 // Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
-  var x = document.getElementById("navDemo");
+  var x = document.getElementById("nav");
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
   } else {

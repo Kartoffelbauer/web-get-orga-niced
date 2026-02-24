@@ -3,6 +3,7 @@ FROM nginxinc/nginx-unprivileged:alpine
 
 # Overwrite default files directly and ensure nginx owns them
 COPY --chown=nginx:nginx ./index.html /usr/share/nginx/html/
+COPY --chown=nginx:nginx ./privacy-policy.html /usr/share/nginx/html/
 COPY --chown=nginx:nginx ./google8b1bf3edb416c742.html /usr/share/nginx/html/
 COPY --chown=nginx:nginx ./assets /usr/share/nginx/html/assets/
 
