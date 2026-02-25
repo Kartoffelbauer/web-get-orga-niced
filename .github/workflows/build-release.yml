@@ -9,22 +9,28 @@ env:
   REGISTRY: ghcr.io
 
 jobs:
-  build-and-push:
+  # 1. NEW SETUP JOB: Calculates variables once to follow DRY principles
+  setup:
     runs-on: ubuntu-latest
-    
-    # Strictly scoped permissions (Best Practice)
+    outputs:
+      image_name: ${{ steps.set_vars.outputs.image_name }}
+    steps:
+      - name: Calculate lowercase image name
+        id: set_vars
+        run: echo "image_name=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+
+  build-and-push:
+    needs: setup
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # FIX: Safely enforce lowercase for the Docker image name
-      - name: Set lowercase image name
-        run: |
-          echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -40,26 +46,26 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          # Use the variable from the setup job
+          images: ${{ env.REGISTRY }}/${{ needs.setup.outputs.image_name }}
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            # Avoids tagging pre-releases/betas as 'latest'
             type=raw,value=latest,enable=${{ !startsWith(github.ref, 'refs/tags/v0.') }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6 # Bumped to v6
+        uses: docker/build-push-action@v6
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          # Uses GitHub Actions cache to speed up future builds
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
   create-release:
-    needs: build-and-push
+    needs: [setup, build-and-push]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -67,19 +73,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Enforce lowercase image name for the release note body as well
-      - name: Set lowercase image name
-        run: |
-          echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
-
       - name: Package Website Source
         run: |
-          mkdir site-dist
-          # Note: Simple .dockerignore files work well with rsync. 
-          # Complex Docker exclusions might require different handling.
-          rsync -a --exclude-from='.dockerignore' ./ site-dist/
-          cd site-dist
-          zip -r ../website-source.zip .
+          # Use official GitHub Actions temporary directory
+          TEMP_DIR="${{ runner.temp }}/site-dist"
+          mkdir -p "$TEMP_DIR"
+          
+          # explicitly exclude .git as a failsafe, alongside .dockerignore
+          rsync -a --exclude-from='.dockerignore' --exclude='.git' ./ "$TEMP_DIR/"
+          
+          # Zip the contents from the temp dir, saving the zip back to the workspace
+          (cd "$TEMP_DIR" && zip -r "${{ github.workspace }}/website-source.zip" .)
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -88,4 +92,4 @@ jobs:
           generate_release_notes: true
           body: |
             ### Docker Image
-            `${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}`
+            `${{ env.REGISTRY }}/${{ needs.setup.outputs.image_name }}:${{ github.ref_name }}`
