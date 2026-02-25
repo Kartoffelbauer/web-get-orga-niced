@@ -53,3 +53,29 @@ jobs:
           # Uses GitHub Actions cache to speed up future builds
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  create-release:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Package Website Source
+        run: |
+          mkdir site-dist
+          # Copy files, excluding patterns from .dockerignore. The -a flag is for "archive mode".
+          rsync -a --exclude-from='.dockerignore' ./ site-dist/
+          cd site-dist
+          zip -r ../website-source.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: website-source.zip
+          generate_release_notes: true
+          body: |
+            ### Docker Image
+            `${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}`
