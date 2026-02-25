@@ -7,14 +7,12 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  # Converts repository name to lowercase automatically
-  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     
-    # Required permissions to push to GitHub Container Registry
+    # Strictly scoped permissions (Best Practice)
     permissions:
       contents: read
       packages: write
@@ -22,6 +20,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      # FIX: Safely enforce lowercase for the Docker image name
+      - name: Set lowercase image name
+        run: |
+          echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -41,10 +44,11 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+            # Avoids tagging pre-releases/betas as 'latest'
             type=raw,value=latest,enable=${{ !startsWith(github.ref, 'refs/tags/v0.') }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6 # Bumped to v6
         with:
           context: .
           push: true
@@ -63,10 +67,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Enforce lowercase image name for the release note body as well
+      - name: Set lowercase image name
+        run: |
+          echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+
       - name: Package Website Source
         run: |
           mkdir site-dist
-          # Copy files, excluding patterns from .dockerignore. The -a flag is for "archive mode".
+          # Note: Simple .dockerignore files work well with rsync. 
+          # Complex Docker exclusions might require different handling.
           rsync -a --exclude-from='.dockerignore' ./ site-dist/
           cd site-dist
           zip -r ../website-source.zip .
