@@ -1,6 +1,6 @@
 # get-orga-niced.de
 
-[![Build and Release](https://github.com/ahermann/web-get-orga-niced/actions/workflows/build-release.yml/badge.svg)](https://github.com/ahermann/web-get-orga-niced/actions/workflows/build-release.yml)
+[![Build](https://github.com/Kartoffelbauer/web-get-orga-niced/actions/workflows/build-release.yml/badge.svg)](https://github.com/Kartoffelbauer/web-get-orga-niced/actions/workflows/build-release.yml)
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fwww.get-orga-niced.de)](https://www.get-orga-niced.de)
 
 Source code for **[www.get-orga-niced.de](https://www.get-orga-niced.de)**.
@@ -17,7 +17,7 @@ Source code for **[www.get-orga-niced.de](https://www.get-orga-niced.de)**.
 ### Docker
 
 ```bash
-docker run -d -p 8080:80 ghcr.io/ahermann/web-get-orga-niced:latest
+docker run -d -p 8080:80 ghcr.io/Kartoffelbauer/web-get-orga-niced:latest
 ```
 
 ### Manual
