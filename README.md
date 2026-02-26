@@ -22,7 +22,7 @@ docker run -d -p 8080:80 ghcr.io/Kartoffelbauer/web-get-orga-niced:latest
 
 ### Manual
 
-Download the `website-source.zip` from the Releases page, extract it, and open `index.html` in your browser.
+Download the `website-source.zip` from the [Releases](https://github.com/Kartoffelbauer/web-get-orga-niced/releases) page, extract it, and open `index.html` in your browser.
 
 ## 📄 License
 
