@@ -91,7 +91,7 @@ jobs:
           files: website-source.zip
           generate_release_notes: true
           body: |
-            ### 🐳 Docker Image
+            ### Docker Image
             ```bash
             docker run -d -p 8080:80 ${{ env.REGISTRY }}/${{ needs.setup.outputs.image_name }}:${{ github.ref_name }}
             ```
