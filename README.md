@@ -1,6 +1,6 @@
 # get-orga-niced.de
 
-[![Build](https://github.com/Kartoffelbauer/web-get-orga-niced/actions/workflows/build-release.yml/badge.svg)](https://github.com/Kartoffelbauer/web-get-orga-niced/actions/workflows/build-release.yml)
+[![Build and Release](https://github.com/Kartoffelbauer/web-get-orga-niced/actions/workflows/build-release.yml/badge.svg)](https://github.com/Kartoffelbauer/web-get-orga-niced/actions/workflows/build-release.yml)
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fwww.get-orga-niced.de)](https://www.get-orga-niced.de)
 
 Source code for **[www.get-orga-niced.de](https://www.get-orga-niced.de)**.
