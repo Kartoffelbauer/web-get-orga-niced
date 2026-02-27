@@ -93,5 +93,5 @@ jobs:
           body: |
             ### Docker Image
             ```bash
-            docker run -d -p 8080:80 ${{ env.REGISTRY }}/${{ needs.setup.outputs.image_name }}:${{ github.ref_name }}
+            docker run -d -p 8080:8080 ${{ env.REGISTRY }}/${{ needs.setup.outputs.image_name }}:${{ github.ref_name }}
             ```
