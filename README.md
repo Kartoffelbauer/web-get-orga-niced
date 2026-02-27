@@ -17,7 +17,7 @@ Source code for **[www.get-orga-niced.de](https://www.get-orga-niced.de)**.
 ### Docker
 
 ```bash
-docker run -d -p 8080:80 ghcr.io/Kartoffelbauer/web-get-orga-niced:latest
+docker run -d -p 8080:8080 ghcr.io/Kartoffelbauer/web-get-orga-niced:latest
 ```
 
 ### Manual
