@@ -12,6 +12,7 @@ USER 101
 
 # Overwrite default files directly and ensure nginx owns them
 COPY --chown=nginx:nginx ./index.html /usr/share/nginx/html/
+COPY --chown=nginx:nginx ./privacy-policy.html /usr/share/nginx/html/
 COPY --chown=nginx:nginx ./assets /usr/share/nginx/html/assets/
 
 # Copy custom Nginx configuration and security headers
