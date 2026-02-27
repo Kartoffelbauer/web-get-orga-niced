@@ -1,10 +1,17 @@
 # Use the official Nginx unprivileged Alpine image
 FROM nginxinc/nginx-unprivileged:alpine
 
+# Temporarily switch to root to remove the mutating entrypoint script
+USER root
+
+# Remove all default startup scripts since our config is fully baked in
+RUN rm /docker-entrypoint.d/*.sh
+
+# Switch back to the unprivileged nginx user (UID 101 in this image)
+USER 101
+
 # Overwrite default files directly and ensure nginx owns them
 COPY --chown=nginx:nginx ./index.html /usr/share/nginx/html/
-COPY --chown=nginx:nginx ./privacy-policy.html /usr/share/nginx/html/
-COPY --chown=nginx:nginx ./google8b1bf3edb416c742.html /usr/share/nginx/html/
 COPY --chown=nginx:nginx ./assets /usr/share/nginx/html/assets/
 
 # Copy custom Nginx configuration and security headers
