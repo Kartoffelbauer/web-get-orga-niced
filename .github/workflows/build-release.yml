@@ -79,8 +79,8 @@ jobs:
           TEMP_DIR="${{ runner.temp }}/site-dist"
           mkdir -p "$TEMP_DIR"
           
-          # explicitly exclude .git as a failsafe, alongside .dockerignore
-          rsync -a --exclude-from='.dockerignore' --exclude='.git' ./ "$TEMP_DIR/"
+          # explicitly exclude .git as a failsafe, alongside .dockerignore and nginx directory
+          rsync -a --exclude-from='.dockerignore' --exclude='.git' --exclude='nginx' ./ "$TEMP_DIR/"
           
           # Zip the contents from the temp dir, saving the zip back to the workspace
           (cd "$TEMP_DIR" && zip -r "${{ github.workspace }}/website-source.zip" .)
